@@ -30,6 +30,12 @@ rent8后端地址：[rent8-最常用出租屋管理系统](https://gitee.com/Mar
 
 #### 安装步骤
 
-1. 根据后端访问地址，修改app.js文件
+1. `git clone https://gitee.com/MarcoMaHH/rent8_wechat.git`
 
-2. 修改appid
+2. `npm install`
+
+3. 安装完之后，需要在微信开发者工具中对 npm 进行构建：工具 - 构建 npm
+
+4. 根据后端访问地址，修改app.js文件
+
+5. 修改appid
