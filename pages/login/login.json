@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-overlay": "tdesign-miniprogram/overlay/overlay",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-input": "tdesign-miniprogram/input/input"
+  }
+}

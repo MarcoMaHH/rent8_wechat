@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-button": "tdesign-miniprogram/button/button"
+  },
+  "navigationBarTitleText": "房租收据"
+}

@@ -1,0 +1,13 @@
+/**app.wxss**/
+page {
+  background: #f6f6f6;
+}
+
+.loading-container {
+  display        : flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items    : center;
+  /* 垂直居中 */
+  margin         : 16rpx 0;
+}

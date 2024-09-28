@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "t-button": "tdesign-miniprogram/button/button",
+        "pull-down-list": "../../components/pull-down-list/index"
+    }
+}

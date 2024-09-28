@@ -1,0 +1,19 @@
+<view class="list-title">{{title}}</view>
+<t-input label="房间名称" type="text" value="{{list.name}}" data-key="name" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="租金" type="number" value="{{list.rental}}" data-key="rental" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="押金" type="number" value="{{list.deposit}}" data-key="deposit" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-cell class="mb-16" title="选择租期" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
+<t-input label="管理费" type="number" value="{{list.management}}" data-key="management" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="网络费" type="number" value="{{list.network}}" data-key="network" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="卫生费" type="number" value="{{list.garbage_fee}}" data-key="garbage_fee" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="逾期日租金" type="number" value="{{list.daily_rent}}" data-key="daily_rent" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="水费单价" type="digit" value="{{list.water_price}}" data-key="water_price" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="电费单价" type="digit" value="{{list.electricity_price}}" data-key="electricity_price" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<view class="button-container">
+  <t-button theme="primary" size="large" bind:tap="bindSave" block>确定</t-button>
+</view>
+<t-toast id="t-toast" />
+<t-overlay visible="{{overlay}}" />
+<t-picker visible="{{cityVisible}}" value="{{cityValue}}" data-key="city" title="选择租期" cancelBtn="取消" confirmBtn="确认" bindchange="onPickerChange">
+  <t-picker-item options="{{citys}}" />
+</t-picker>

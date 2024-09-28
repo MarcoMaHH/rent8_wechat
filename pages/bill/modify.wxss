@@ -1,0 +1,13 @@
+/* pages/bill/modify.wxss */
+.button-container {
+    margin        : 32rpx;
+    padding-bottom: 32rpx;
+}
+
+.list-title {
+    font-size    : 24px;
+    font-weight  : 700;
+    line-height  : 32px;
+    margin-bottom: 16rpx;
+    text-align   : center;
+}

@@ -1,0 +1,21 @@
+/* pages/login/login.wxss */
+
+page {
+    height: 90%;
+}
+
+.rent-title {
+    font-size  : 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin     : 24px 16px 16px;
+    text-align : center;
+}
+
+.rent-height {
+    height: 65%;
+}
+
+.button-container {
+    margin: 32rpx;
+}

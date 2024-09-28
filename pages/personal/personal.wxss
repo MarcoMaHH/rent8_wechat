@@ -1,0 +1,5 @@
+/* pages/personal/personal.wxss */
+.rent5-cell {
+    padding-right: 0;
+    padding-left : 0;
+}

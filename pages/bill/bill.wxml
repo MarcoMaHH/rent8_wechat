@@ -1,0 +1,22 @@
+<t-dropdown-menu>
+  <t-dropdown-item options="{{houses}}" value="{{house_id}}" bindchange="houseChange" keys="{{keys}}" />
+  <t-dropdown-item options="{{reading_arr}}" value="{{meter_time}}" bindchange="bindDateChange" />
+</t-dropdown-menu>
+<t-swipe-cell class="list-bottom" wx:for="{{list}}" wx:key="id">
+  <t-input label="房号" suffix="{{item.name}}" align="right" disabled />
+  <t-input label="总金额" suffix="{{item.total_money}}元" align="right" disabled />
+  <t-input label="收款日期" suffix="{{item.start_time}}" align="right" disabled />
+  <t-input label="抄表日期" suffix="{{item.meter_reading_time !== null ? item.meter_reading_time : ''}}" align="right" disabled />
+  <view slot="right" class="btn-wrapper">
+    <view class="btn favor-btn" data-index="{{ index }}" bindtap="onModifyTap">抄表</view>
+    <view class="btn edit-btn" data-index="{{ index }}" bindtap="onShowTap" wx:if="{{item.note != '借贷平衡'}}">收据</view>
+    <view class="btn delete-btn" data-index="{{ index }}" bindtap="onAccountTap">到账</view>
+  </view>
+</t-swipe-cell>
+<block wx:if="{{list.length === 0 && isLoading === false}}">
+  <view class="no-bill">暂无账单</view>
+</block>
+<t-toast id="t-toast" />
+<view class="loading-container">
+  <t-loading wx:if="{{isLoading}}" theme="circular" size="64rpx" class="large" />
+</view>

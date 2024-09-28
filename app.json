@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/number/number",
+    "pages/number/modify",
+    "pages/number/rental",
+    "pages/bill/bill",
+    "pages/bill/show",
+    "pages/bill/modify",
+    "pages/personal/personal",
+    "pages/personal/use"
+  ],
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  },
+  "window": {
+    "backgroundColor": "#f6f6f6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "最常用出租屋管理系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#9fc6ff",
+    "backgroundColor": "#F6F6F6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/icon_home.png",
+        "selectedIconPath": "/images/icon_home_selected.png",
+        "text": ""
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "iconPath": "/images/icon_setting.png",
+        "selectedIconPath": "/images/icon_setting_selected.png",
+        "text": ""
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

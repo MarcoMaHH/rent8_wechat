@@ -1,0 +1,17 @@
+<view class="list-title">{{list.house_property_name}} - {{list.house_number_name}}</view>
+<t-input label="旧电表度数" placeholder="请输入上期电表度数" type="number" value="{{list.electricity_meter_last_month !== null ? list.electricity_meter_last_month : ''}}" data-key="electricity_meter_last_month" bindchange="bindDataChange"></t-input>
+<t-input label="旧水表度数" placeholder="请输入上期水表度数" type="number" value="{{list.water_meter_last_month !== null ? list.water_meter_last_month : ''}}" data-key="water_meter_last_month" bindchange="bindDataChange"></t-input>
+<t-input label="电表度数" placeholder="请输入本期电表度数" type="number" value="{{list.electricity_meter_this_month !== null ? list.electricity_meter_this_month : ''}}" data-key="electricity_meter_this_month" bindchange="bindDataChange"></t-input>
+<t-input label="水表度数" placeholder="请输入本期水表度数" type="number" value="{{list.water_meter_this_month !== null ? list.water_meter_this_month : ''}}" data-key="water_meter_this_month" bindchange="bindDataChange"></t-input>
+<t-input label="租金" type="number" value="{{list.rental}}" data-key="rental" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="押金" type="number" value="{{list.deposit}}" data-key="deposit" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="管理费" type="number" value="{{list.management}}" data-key="management" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="管理费" type="number" value="{{list.network}}" data-key="network" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="卫生费" type="number" value="{{list.garbage_fee}}" data-key="garbage_fee" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-input label="其他费用" type="text" value="{{list.other_charges}}" data-key="other_charges" bindchange="bindDataChange" placeholder="请输入..."></t-input>
+<t-textarea t-class="external-class" autosize="{{autosize}}" label="备注" disableDefaultPadding="{{true}}" value="{{list.note}}" bindchange="bindNoteChange" placeholder="请输入..." />
+<view class="button-container">
+  <t-button theme="primary" size="large" bind:tap="bindSave" block>确定</t-button>
+</view>
+<t-overlay visible="{{overlay}}" />
+<t-toast id="t-toast" />

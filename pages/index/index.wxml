@@ -1,0 +1,20 @@
+<!-- pages/index/index.wxml -->
+<view class="main">
+  <view class="desc">
+    <view wx:if="{{username}}">
+      欢迎 {{username}} ！您的账号于
+      <span class="blue">{{expiration_date}}</span>
+      到期。
+    </view>
+    <view wx:else>
+      欢迎您！
+      <span class="blue" bind:tap="onLoginTap">请登录！</span>
+    </view>
+  </view>
+  <pull-down-list wx:for="{{list}}" name="{{item.name}}" icon="{{item.icon}}" wx:key="name" childArr="{{item.childArr}}" bind:click="clickHandle" />
+</view>
+<span wx:if="{{!username}}">
+  <view class="button-container">
+    <t-button theme="primary" size="large" block bindtap="onLoginTap">登 录</t-button>
+  </view>
+</span>

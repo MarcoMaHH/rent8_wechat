@@ -1,0 +1,21 @@
+<t-input label="房号" suffix="{{data.number_id}}" align="right" disabled />
+<block wx:if="{{data.end_time}}">
+  <t-input label="租期" suffix="{{data.start_time}}至{{data.end_time}}" align="right" disabled />
+</block>
+<block wx:else>
+  <t-input label="退房日期" suffix="{{data.start_time}}" align="right" disabled />
+</block>
+<t-input label="电费" suffix="{{data.electricity_meter_this_month}}-{{data.electricity_meter_last_month}}={{data.electricity_consumption}}*{{data.electricity_price}}={{data.electricity}}元" align="right" disabled />
+<t-input label="水费" suffix="{{data.water_meter_this_month}}-{{data.water_meter_last_month}}={{data.water_consumption}}*{{data.water_price}}={{data.water}}元" align="right" disabled />
+<t-input label="租金" suffix="{{data.rental}}元" align="right" disabled />
+<t-input label="押金" suffix="{{data.deposit}}元" align="right" disabled />
+<t-input label="管理费" suffix="{{data.management}}元" align="right" disabled />
+<t-input label="网络费" suffix="{{data.network}}元" align="right" disabled />
+<t-input label="卫生费" suffix="{{data.garbage_fee}}元" align="right" disabled />
+<t-input label="其他费用" suffix="{{data.other_charges}}元" align="right" disabled />
+<t-input label="合计" suffix="{{data.total_money}}元" align="right" disabled />
+<t-input label="备注" suffix="{{data.note}}" align="right" disabled />
+<view class="button-container" wx:if="{{isLandlord}}">
+  <t-button theme="primary" size="large" open-type="share" block>发送给租客</t-button>
+</view>
+<t-toast id="t-toast" />

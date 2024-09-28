@@ -1,0 +1,35 @@
+<t-dropdown-menu>
+  <t-dropdown-item options="{{houses}}" value="{{house_id}}" bindchange="houseChange" keys="{{keys}}" />
+</t-dropdown-menu>
+<t-swipe-cell class="list-bottom" wx:for="{{list}}" wx:key="id">
+  <t-input label="房间名称" suffix="{{item.name}}" align="right" disabled />
+  <t-input label="房间情况" align="right" disabled>
+    <view slot="suffix" style="display: flex; align-items: center">
+      <block wx:if="{{item.rent_mark == 'N'}}">
+        <view class="idle" aria-role="button">空闲</view>
+      </block>
+      <block wx:else>
+        <view class="rented" aria-role="button">已租</view>
+      </block>
+    </view>
+  </t-input>
+  <view slot="right" class="btn-wrapper">
+    <view class="btn favor-btn" data-index="{{ index }}" bindtap="onModifyTap">编辑</view>
+    <block wx:if="{{item.rent_mark == 'N'}}">
+      <view class="btn edit-btn" data-index="{{ index }}" bindtap="onRentalTap">入住</view>
+    </block>
+    <block wx:else>
+      <view class="btn delete-btn" data-id="{{ item.id }}" bind:tap="showDialog">退房</view>
+    </block>
+  </view>
+</t-swipe-cell>
+<view class="loading-container">
+  <t-loading wx:if="{{isLoading}}" theme="circular" size="64rpx" class="large" />
+</view>
+<t-dialog visible="{{showConfirm}}" title="请确认退房日期" confirm-btn="确定" cancel-btn="取消" bind:confirm="onCheckoutTap" bind:cancel="closeDialog">
+  <t-button theme="primary" slot="content" bindtap="showDate" size="large" variant="text">
+    {{leave_time}}
+  </t-button>
+</t-dialog>
+<t-date-time-picker title="选择日期" visible="{{dateVisible}}" mode="date" defaultValue="{{date}}" format="YYYY-MM-DD" bindchange="onConfirm" bindcancel="hidePicker" />
+<t-toast id="t-toast" />
