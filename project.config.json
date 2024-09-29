@@ -1,5 +1,4 @@
 {
-  "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "libVersion": "trial",
   "packOptions": {
@@ -33,5 +32,6 @@
   },
   "projectname": "rent8_wechat",
   "appid": "",
+  "miniprogramRoot": "miniprogram/",
   "srcMiniprogramRoot": "miniprogram/"
 }
