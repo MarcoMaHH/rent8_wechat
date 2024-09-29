@@ -32,12 +32,14 @@ rent8后端地址：[rent8-最常用出租屋管理系统](https://gitee.com/Mar
 
 1. `git clone https://gitee.com/MarcoMaHH/rent8_wechat.git`
 
-2. `npm install`
+2. `cd rent8_wechat`
 
-3. 安装完之后，在微信开发者工具中设置appid
+3. `npm install`
 
-4. 在微信开发者工具中对 npm 进行构建：工具 - 构建 npm
+4. 安装完之后，在微信开发者工具中设置appid
 
-5. 根据后端访问地址，修改app.js文件中的apiUrl变量
+5. 在微信开发者工具中对 npm 进行构建：工具 - 构建 npm
 
-6. 调试代码时，在微信开发者工具中，选中“不校验合法域名、web-wiew（业务域名）、TLS版本以及HTTPS证书”
+6. 根据后端访问地址，修改app.js文件中的apiUrl变量
+
+7. 调试代码时，在微信开发者工具中，选中“不校验合法域名、web-wiew（业务域名）、TLS版本以及HTTPS证书”
