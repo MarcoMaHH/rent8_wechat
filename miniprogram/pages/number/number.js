@@ -173,7 +173,7 @@ Page({
 
   // 调起退房对话框
   showDialog(e) {
-    const { id } = e.currentTarget.dataset;
+    const { id, rent_mark } = e.currentTarget.dataset;
     this.setData({ showConfirm: true, leave_id: id, title: rent_mark == 'Y' ? '请确认退房日期' : '请确认入住日期' });
   },
   closeDialog() {
