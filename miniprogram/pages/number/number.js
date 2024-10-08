@@ -1,5 +1,5 @@
 const app = getApp()
-import { propertyQuery, propertySort, numberCheckout, numberQuery } from '../../utils/conf'
+import { propertyQuery, propertySort, numberCheckout, numberQuery, numberCheckin } from '../../utils/conf'
 import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
@@ -23,6 +23,7 @@ Page({
     leave_id: 0,
     list: [],
     username: '',
+    title: '',
   },
 
   /**
@@ -121,13 +122,24 @@ Page({
   },
 
   // 入住
-  onRentalTap(e) {
-    let { index } = e.currentTarget.dataset
-    // console.log(this.data.list[index].id)
-    let { id, house_property_id } = this.data.list[index]
-    wx.navigateTo({
-      url: '/pages/number/rental?id=' + id + '&house_property_id=' + house_property_id
-    })
+  async onRentalTap() {
+    try {
+      const res = await app.call({
+        path: numberCheckin,
+        method: 'POST',
+        data: { house_number_id: this.data.leave_id, checkin_time: this.data.leave_time, house_property_id: this.data.house_id }
+      });
+      this.setData({
+        showConfirm: false,
+      });
+      const icon = res.code === 1 ? 'success' : 'warning';
+      this.showToast(res.msg, icon);
+      this.query();
+    } catch (error) {
+      // 假设这里使用showToast显示错误
+      this.showToast('退房失败', 'error');
+      console.error('退房失败:', error);
+    }
   },
 
   // 退房
@@ -151,10 +163,18 @@ Page({
     }
   },
 
+  onConfirmTap() {
+    if (this.data.title === '请确认退房日期') {
+      this.onCheckoutTap();
+    } else {
+      this.onRentalTap();
+    }
+  },
+
   // 调起退房对话框
   showDialog(e) {
     const { id } = e.currentTarget.dataset;
-    this.setData({ showConfirm: true, leave_id: id });
+    this.setData({ showConfirm: true, leave_id: id, title: rent_mark == 'Y' ? '请确认退房日期' : '请确认入住日期' });
   },
   closeDialog() {
     this.setData({ showConfirm: false });

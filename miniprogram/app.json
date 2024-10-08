@@ -4,7 +4,6 @@
     "pages/login/login",
     "pages/number/number",
     "pages/number/modify",
-    "pages/number/rental",
     "pages/bill/bill",
     "pages/bill/show",
     "pages/bill/modify",

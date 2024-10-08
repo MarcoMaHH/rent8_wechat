@@ -1,9 +1,0 @@
-<view class="list-title">{{list.house_property_name}} - {{list.house_number_name}}</view>
-<t-cell title="入住日期" note="{{list.checkin_time || ''}}" hover arrow data-mode="date" bindtap="showDate" t-class="panel-item" />
-<t-input label="租客姓名" value="{{list.name}}" data-key="name" bindchange="bindDataChange" placeholder="请输入..."></t-input>
-<view class="button-container">
-  <t-button theme="primary" size="large" bind:tap="bindCheckin" block>确定</t-button>
-</view>
-<t-date-time-picker title="选择日期" visible="{{dateVisible}}" mode="date" defaultValue="{{date}}" format="YYYY-MM-DD" bindchange="onConfirm" bindcancel="hideDate" />
-<t-overlay visible="{{overlay}}" />
-<t-toast id="t-toast" />

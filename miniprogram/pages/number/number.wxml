@@ -16,17 +16,17 @@
   <view slot="right" class="btn-wrapper">
     <view class="btn favor-btn" data-index="{{ index }}" bindtap="onModifyTap">编辑</view>
     <block wx:if="{{item.rent_mark == 'N'}}">
-      <view class="btn edit-btn" data-index="{{ index }}" bindtap="onRentalTap">入住</view>
+      <view class="btn edit-btn" data-id="{{ item.id }}" data-rent_mark="{{item.rent_mark}}"  bindtap="onRentalTap">入住</view>
     </block>
     <block wx:else>
-      <view class="btn delete-btn" data-id="{{ item.id }}" bind:tap="showDialog">退房</view>
+      <view class="btn delete-btn" data-id="{{ item.id }}" data-rent_mark="{{item.rent_mark}}"  bind:tap="showDialog">退房</view>
     </block>
   </view>
 </t-swipe-cell>
 <view class="loading-container">
   <t-loading wx:if="{{isLoading}}" theme="circular" size="64rpx" class="large" />
 </view>
-<t-dialog visible="{{showConfirm}}" title="请确认退房日期" confirm-btn="确定" cancel-btn="取消" bind:confirm="onCheckoutTap" bind:cancel="closeDialog">
+<t-dialog visible="{{showConfirm}}" title="{{title}}" confirm-btn="确定" cancel-btn="取消" bind:confirm="onConfirmTap" bind:cancel="closeDialog">
   <t-button theme="primary" slot="content" bindtap="showDate" size="large" variant="text">
     {{leave_time}}
   </t-button>
