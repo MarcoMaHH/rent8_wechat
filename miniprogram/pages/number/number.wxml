@@ -16,7 +16,7 @@
   <view slot="right" class="btn-wrapper">
     <view class="btn favor-btn" data-index="{{ index }}" bindtap="onModifyTap">编辑</view>
     <block wx:if="{{item.rent_mark == 'N'}}">
-      <view class="btn edit-btn" data-id="{{ item.id }}" data-rent_mark="{{item.rent_mark}}"  bindtap="onRentalTap">入住</view>
+      <view class="btn edit-btn" data-id="{{ item.id }}" data-rent_mark="{{item.rent_mark}}"  bindtap="showDialog">入住</view>
     </block>
     <block wx:else>
       <view class="btn delete-btn" data-id="{{ item.id }}" data-rent_mark="{{item.rent_mark}}"  bind:tap="showDialog">退房</view>
