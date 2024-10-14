@@ -4,8 +4,6 @@ const register = 'api/user/register'                              // 注册
 const logout = 'api/user/logout'                                  // 退出
 const propertyQuery = 'api/property/query'                        // 房产查询
 const propertySort = 'api/property/sort'
-const propertyEdit = 'api/property/edit'
-const propertySave = 'api/property/save'
 const uncollectedQuery = 'api/uncollected/query'                  // 未收账单主页面
 const uncollectedReport = 'api/uncollected/report'                    // 未收账单-收据页面
 const uncollectedEdit = 'api/uncollected/edit'                        // 未收账单-修改页面
@@ -26,8 +24,6 @@ module.exports = {
   logout,
   propertyQuery,
   propertySort,
-  propertyEdit,
-  propertySave,
   uncollectedQuery,
   uncollectedReport,
   uncollectedEdit,
