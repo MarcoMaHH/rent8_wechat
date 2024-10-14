@@ -1,9 +1,6 @@
 const userinfo = 'api/user/userinfo'                              // 查询用户信息
 const login = 'api/user/login'                                    // 登录
-
-const bindWechat = 'api/user/bindWechat'                          // 绑定微信
 const register = 'api/user/register'                              // 注册
-const renewal = 'api/user/renewal'                                // 续费
 const logout = 'api/user/logout'                                  // 退出
 const propertyQuery = 'api/property/query'                        // 房产查询
 const propertySort = 'api/property/sort'
@@ -21,19 +18,12 @@ const numberSave = 'api/number/save'
 const numberRental = 'api/number/rental'
 const numberCheckin = 'api/number/checkin'
 const numberCheckout = 'api/number/checkout'
-const collectedQuery = 'api/collected/query'                      // 到账账单页面
-const collectedSum = 'api/collected/sum'
-const reportQuery = 'api/report/query'                            // 房产报表页面
-const reportEchart = 'api/report/echar'
 
 module.exports = {
   userinfo,
   login,
-
   register,
-  renewal,
   logout,
-  bindWechat,
   propertyQuery,
   propertySort,
   propertyEdit,
@@ -50,8 +40,4 @@ module.exports = {
   numberRental,
   numberCheckin,
   numberCheckout,
-  collectedQuery,
-  collectedSum,
-  reportQuery,
-  reportEchart,
 }
