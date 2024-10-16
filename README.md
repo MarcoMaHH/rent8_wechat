@@ -30,6 +30,8 @@ rent8后端地址：[rent8-最常用出租屋管理系统](https://gitee.com/Mar
 
 #### 安装步骤
 
+PS: 需先安装Node.js
+
 1. `git clone https://gitee.com/MarcoMaHH/rent8_wechat.git`
 
 2. `cd rent8_wechat`
