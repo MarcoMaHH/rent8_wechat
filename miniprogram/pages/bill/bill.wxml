@@ -3,6 +3,7 @@
   <t-dropdown-item options="{{reading_arr}}" value="{{meter_time}}" bindchange="bindDateChange" />
 </t-dropdown-menu>
 <t-swipe-cell class="list-bottom" wx:for="{{list}}" wx:key="id">
+  <t-input label="房产" wx:if="{{house_id == 0}}" suffix="{{item.property_name}}" align="right" disabled />
   <t-input label="房号" suffix="{{item.name}}" align="right" disabled />
   <t-input label="总金额" suffix="{{item.total_money}}元" align="right" disabled />
   <t-input label="收款日期" suffix="{{item.start_time}}" align="right" disabled />
