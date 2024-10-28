@@ -1,9 +1,10 @@
 <t-dropdown-menu>
-  <t-dropdown-item options="{{houses}}" value="{{house_id}}" bindchange="houseChange" keys="{{keys}}" />
+  <t-dropdown-item options="{{houses}}" value="{{house_id}}" bindchange="houseChange" />
 </t-dropdown-menu>
 <t-swipe-cell class="list-bottom" wx:for="{{list}}" wx:key="id">
+  <t-input label="房产名称" wx:if="{{house_id == 0}}" suffix="{{item.property_name}}" align="right" disabled />
   <t-input label="房间名称" suffix="{{item.name}}" align="right" disabled />
-  <t-input label="房间情况" align="right" disabled>
+  <t-input label="房间状态" align="right" disabled>
     <view slot="suffix" style="display: flex; align-items: center">
       <block wx:if="{{item.rent_mark == 'N'}}">
         <view class="idle" aria-role="button">空闲</view>

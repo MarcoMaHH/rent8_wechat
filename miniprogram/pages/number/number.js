@@ -1,5 +1,6 @@
 const app = getApp()
-import { propertyQuery, propertySort, numberCheckout, numberQuery, numberCheckin } from '../../utils/conf'
+const dayjs = require('dayjs');
+import { propertyQueryAll, propertySort, numberCheckout, numberQuery, numberCheckin } from '../../utils/conf'
 import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
@@ -9,10 +10,9 @@ Page({
    */
   data: {
     isLoading: false,
-    houses: [{ name: '选择房产', id: 0 }],
+    houses: [{ label: '选择房产', value: 0 }],
     house_id: 0,
     house_name: '',
-    keys: { label: 'name', value: 'id' },
     // 退房对话框
     confirmBtn: { content: '确定', variant: 'base' },
     showConfirm: false,
@@ -45,13 +45,21 @@ Page({
   async queryHouse() {
     try {
       const res = await app.call({
-        path: propertyQuery,
-        method: 'GET'
+        path: propertyQueryAll,
+        method: 'GET',
       });
       if (res.code === 1) {
+        let houseArr = res.data;
+        let house_id = 0;
+        for (let element of res.data) {
+          if (element.firstly === 'Y') {
+            house_id = element.value;
+            break;
+          }
+        }
         this.setData({
-          houses: res.data,
-          house_id: res.msg
+          houses: houseArr,
+          house_id: house_id
         }, () => {
           this.setHouseName();
         });
@@ -77,12 +85,13 @@ Page({
     try {
       const res = await app.call({
         path: numberQuery,
-        method: 'GET'
+        method: 'GET',
       });
       if (res.code === 1) {
+        const now = dayjs(); // 获取当前时间
         this.setData({
           list: res.data,
-          leave_time: res.msg
+          leave_time: now.format('YYYY-MM-DD'),
         });
       }
     } catch (error) {
@@ -115,9 +124,9 @@ Page({
   onModifyTap(e) {
     let { index } = e.currentTarget.dataset
     // console.log(this.data.list[index].id)
-    let id = this.data.list[index].id
+    let { id, property_name } = this.data.list[index];
     wx.navigateTo({
-      url: '/pages/number/modify?id=' + id + '&house_name=' + this.data.house_name,
+      url: '/pages/number/modify?id=' + id + '&house_name=' + property_name,
     })
   },
 
