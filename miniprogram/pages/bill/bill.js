@@ -1,6 +1,6 @@
 // pages/bill/bill.js
 const app = getApp()
-import { propertyQuery, propertySort, uncollectedQuery, uncollectedAccount, uncollectedReadingTime } from '../../utils/conf'
+import { propertyQueryAll, propertySort, uncollectedQuery, uncollectedAccount, uncollectedReadingTime } from '../../utils/conf'
 import Toast from 'tdesign-miniprogram/toast/index';
 
 Page({
@@ -9,9 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    houses: [{ name: '选择房产', id: 0 }],
+    houses: [{ label: '选择房产', value: 0 }],
     house_id: 0,
-    keys: { label: 'name', value: 'id' },
     meter_time: '',
     reading_arr: [{ label: '抄表日期', value: '' }],
     isLoading: false,
@@ -40,17 +39,26 @@ Page({
   async queryHouse() {
     try {
       const res = await app.call({
-        path: propertyQuery,
-        method: 'GET',
+        path: propertyQueryAll,
+        method: 'GET'
       });
       if (res.code === 1) {
+        let houseArr = res.data;
+        let house_id = 0;
+        for (let element of res.data) {
+          if (element.firstly === 'Y') {
+            house_id = element.value;
+            break;
+          }
+        }
         this.setData({
-          houses: res.data,
-          house_id: res.msg
+          houses: houseArr,
+          house_id: house_id
         });
       }
     } catch (error) {
-      console.error('房产查询失败:', error);
+      // 假设这里使用showToast显示错误
+      console.error('查询房产失败:', error);
     }
   },
 
@@ -119,6 +127,7 @@ Page({
       // 调用查询账单和抄表时间的方法
       this.query();
       this.queryReadingTime();
+      this.queryHouse();
     } catch (error) {
       // 捕获错误并显示Toast提示
       console.error('房产变更失败:', error);

@@ -114,6 +114,7 @@ Page({
         data: { id: e.detail.value }
       });
       this.query();
+      this.queryHouse();
     } catch (error) {
       // 假设这里使用showToast显示错误
       console.error('房产排序失败:', error);
