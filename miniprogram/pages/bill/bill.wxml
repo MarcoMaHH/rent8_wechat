@@ -1,5 +1,5 @@
 <t-dropdown-menu>
-  <t-dropdown-item options="{{houses}}" value="{{house_id}}" bindchange="houseChange" keys="{{keys}}" />
+  <t-dropdown-item options="{{houses}}" value="{{house_id}}" bindchange="houseChange" />
   <t-dropdown-item options="{{reading_arr}}" value="{{meter_time}}" bindchange="bindDateChange" />
 </t-dropdown-menu>
 <t-swipe-cell class="list-bottom" wx:for="{{list}}" wx:key="id">
